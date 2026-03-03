@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todos Santos Real Estate — Ricardo Amigo Real Estate</title>
+  <meta name="description" content="Where the Pacific meets the desert. Discover Todos Santos real estate with RARE — Baja's most trusted boutique agency." />
+
+  <!-- OG Meta for ads -->
+  <meta property="og:title" content="Your Todos Santos Story Starts Here" />
+  <meta property="og:description" content="Luxury land, casas & investment properties in Baja's most magical Pueblo Mágico." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --blue:  #0f509b;
+      --orange: #dd7447;
+      --bg:    #f4eeea;
+      --dark:  #0d1117;
+      --mid:   #1c2533;
+      --text:  #2a2a2a;
+      --muted: #7a7a7a;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 48px;
+      background: transparent;
+      transition: background 0.4s, backdrop-filter 0.4s;
+      isolation: isolate;
+    }
+    nav.scrolled {
+      background: rgba(13,17,23,0.90);
+      backdrop-filter: blur(12px);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-text {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      color: #fff;
+      text-transform: uppercase;
+    }
+    .nav-logo img {
+      height: 32px;
+      filter: brightness(0) invert(1);
+    }
+    .nav-logo span {
+      font-family: var(--serif);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      background: var(--orange);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 10px 22px;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #c5623a; }
+
+    /* ─── HERO ────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      /*
+        SWAP: Replace with your actual hero image.
+        Example: background-image: url('./assets/hero-todos-santos.jpg');
+        Recommended: 1920×1080px min, golden hour coastline or desert-meets-ocean shot.
+      */
+      background-image: url('./images/hero.jpg');
+      background-size: cover;
+      background-position: center 40%;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(0,0,0,0.2) 0%,
+        rgba(0,0,0,0.35) 50%,
+        rgba(0,0,0,0.65) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 72px 24px 80px; /* top clears nav, bottom clears scroll-cue */
+      animation: fadeUp 1.2s ease both;
+      width: 100%;
+    }
+
+    .hero-h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 6vw, 5.2rem);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.08;
+      max-width: 820px;
+      margin: 0 auto 20px;
+    }
+    .hero-h1 em { font-style: italic; color: #f0dfc8; }
+
+    .hero-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 20px;
+    }
+
+    .hero-sub {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      max-width: 480px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 32px;
+      display: inline-block;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: #c5623a; transform: translateY(-1px); }
+
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 13px 32px;
+      border: 1px solid rgba(255,255,255,0.4);
+      display: inline-block;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+    .scroll-cue {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      animation: bounce 2.5s infinite;
+    }
+    .scroll-cue::after {
+      content: '';
+      width: 1px;
+      height: 32px;
+      background: rgba(255,255,255,0.25);
+    }
+
+    /* ─── LIFESTYLE STATS BAR ─────────────────────────── */
+    #stats-bar {
+      background: var(--dark);
+      color: #fff;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .stat-item {
+      padding: 36px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--orange);
+      display: block;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 4px;
+    }
+
+    /* ─── SECTION SHELL ───────────────────────────────── */
+    section { padding: 100px 48px; }
+
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--dark);
+      max-width: 640px;
+    }
+    .section-title em { font-style: italic; }
+
+    /* ─── WHY TODOS SANTOS ────────────────────────────── */
+    #why {
+      background: var(--bg);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .why-text { padding-top: 16px; }
+    .why-text .section-title { margin-bottom: 24px; }
+    .why-text p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+    .why-img {
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: #ccc;
+    }
+    .why-img:first-child {
+      grid-column: span 2;
+      aspect-ratio: 16/7;
+    }
+    .why-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .why-img:hover img { transform: scale(1.04); }
+
+    /* ─── LIFESTYLE GRID ──────────────────────────────── */
+    #lifestyle {
+      background: var(--dark);
+      padding: 80px 0 0;
+    }
+    .lifestyle-header {
+      padding: 0 48px 60px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+    .lifestyle-header .section-title { color: #fff; max-width: 480px; }
+
+    .lifestyle-scroll {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 0 48px 48px;
+    }
+    .lifestyle-scroll::-webkit-scrollbar { display: none; }
+
+    .ls-card {
+      flex: 0 0 280px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ls-card img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.8);
+      transition: filter 0.4s, transform 0.5s;
+    }
+    .ls-card:hover img { filter: brightness(1); transform: scale(1.03); }
+
+    .ls-card-label {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      background: rgba(0,0,0,0.4);
+      padding: 5px 10px;
+    }
+
+    /* ─── ABOUT RARE ──────────────────────────────────── */
+    #about {
+      background: #fff;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-wrap img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+    }
+    .about-badge {
+      position: absolute;
+      bottom: -24px;
+      right: -24px;
+      background: var(--orange);
+      color: #fff;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .about-badge .num {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      font-weight: 300;
+      line-height: 1;
+    }
+    .about-badge .lbl {
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .about-text .section-title { margin-bottom: 20px; }
+    .about-text p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .about-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      margin: 36px 0;
+      border: 1px solid #eee;
+    }
+    .pillar {
+      padding: 24px 20px;
+      border-right: 1px solid #eee;
+      text-align: center;
+    }
+    .pillar:last-child { border-right: none; }
+    .pillar-icon {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+    .pillar h4 {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .pillar p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+
+    /* ─── TESTIMONIALS ────────────────────────────────── */
+    #testimonials {
+      background: var(--bg);
+      text-align: center;
+      padding: 100px 48px;
+    }
+    #testimonials .section-title {
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      text-align: left;
+    }
+
+    .testi-card {
+      background: #fff;
+      padding: 40px 36px;
+    }
+    .testi-quote {
+      font-family: var(--serif);
+      font-size: 3rem;
+      color: var(--orange);
+      line-height: 0.5;
+      margin-bottom: 20px;
+    }
+    .testi-text {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--dark);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .testi-author {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .testi-origin {
+      font-size: 0.72rem;
+      color: var(--orange);
+      margin-top: 2px;
+    }
+
+    /* ─── LEAD MAGNET ─────────────────────────────────── */
+    #guide {
+      background: var(--blue);
+      color: #fff;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      padding: 80px 80px;
+    }
+
+    .guide-text .section-label { color: rgba(255,255,255,0.6); }
+    .guide-text .section-title { color: #fff; margin-bottom: 20px; }
+    .guide-text p {
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 8px;
+    }
+
+    .guide-includes {
+      margin: 24px 0;
+      list-style: none;
+    }
+    .guide-includes li {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .guide-includes li::before {
+      content: '→';
+      color: var(--orange);
+      flex-shrink: 0;
+    }
+
+    .guide-form {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 48px 40px;
+    }
+    .guide-form h3 {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .guide-form p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 28px;
+    }
+
+    .form-group { margin-bottom: 14px; }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 300;
+      padding: 13px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input::placeholder { color: rgba(255,255,255,0.4); }
+    .form-group input:focus,
+    .form-group select:focus { border-color: var(--orange); }
+    .form-group select { cursor: pointer; }
+    .form-group select option { background: var(--dark); color: #fff; }
+
+    /* Lead categorization — hidden from user but captures interest type */
+    .form-intent {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .intent-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 10px 14px;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .intent-chip input[type="checkbox"] { display: none; }
+    .intent-chip.checked,
+    .intent-chip:has(input:checked) {
+      background: rgba(221,116,71,0.2);
+      border-color: var(--orange);
+    }
+    .intent-chip span {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--orange);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 15px;
+      border: none;
+      cursor: pointer;
+      margin-top: 6px;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover { background: #c5623a; }
+    .form-privacy {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* ─── FEATURED PROPERTIES ─────────────────────────── */
+    #properties {
+      background: var(--dark);
+      padding: 100px 48px;
+    }
+    #properties .section-title { color: #fff; }
+    .props-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 56px;
+    }
+    .props-header a {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      text-decoration: none;
+    }
+    .props-header a:hover { text-decoration: underline; }
+
+    /* Filter tabs */
+    .filter-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 40px;
+      border: 1px solid rgba(255,255,255,0.12);
+      width: fit-content;
+    }
+    .filter-tab {
+      padding: 10px 24px;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      background: transparent;
+      border: none;
+      border-right: 1px solid rgba(255,255,255,0.12);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-tab:last-child { border-right: none; }
+    .filter-tab.active, .filter-tab:hover {
+      background: var(--orange);
+      color: #fff;
+    }
+
+    .props-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .prop-card {
+      background: var(--mid);
+      overflow: hidden;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .prop-card:hover { transform: translateY(-4px); }
+    .prop-card:hover .prop-img img { transform: scale(1.05); }
+
+    .prop-img {
+      position: relative;
+      overflow: hidden;
+    }
+    .prop-img img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+      filter: brightness(0.85);
+    }
+
+    .prop-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+    }
+
+    .prop-info {
+      padding: 28px 28px 32px;
+    }
+    .prop-price {
+      font-family: var(--serif);
+      font-size: 1.7rem;
+      font-weight: 300;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .prop-name {
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 16px;
+    }
+    .prop-specs {
+      display: flex;
+      gap: 20px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .spec {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.45);
+      font-weight: 300;
+    }
+    .spec strong {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 2px;
+    }
+
+    .prop-cta {
+      display: block;
+      text-align: center;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.6);
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 12px;
+      margin: 16px 28px 28px;
+      transition: all 0.2s;
+    }
+    .prop-cta:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: #fff;
+    }
+
+    /* ─── CONVERSION ──────────────────────────────────── */
+    #contact {
+      background: var(--bg);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: 600px;
+    }
+
+    .contact-left {
+      background: var(--dark);
+      padding: 80px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .contact-left .section-title { color: #fff; margin-bottom: 20px; }
+    .contact-left p {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .contact-methods { display: flex; flex-direction: column; gap: 12px; }
+
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 24px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      transition: background 0.2s;
+    }
+    .contact-btn.whatsapp {
+      background: #25d366;
+      color: #fff;
+    }
+    .contact-btn.whatsapp:hover { background: #1ebb59; }
+    .contact-btn.call {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .contact-btn.call:hover { background: rgba(255,255,255,0.14); }
+    .contact-btn.email {
+      background: var(--orange);
+      color: #fff;
+    }
+    .contact-btn.email:hover { background: #c5623a; }
+
+    .contact-btn svg { flex-shrink: 0; }
+
+    .contact-right {
+      padding: 80px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .contact-right h3 {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 300;
+      margin-bottom: 8px;
+    }
+    .contact-right > p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .contact-form .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .contact-form .form-group {
+      margin-bottom: 12px;
+    }
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      background: #fff;
+      border: 1px solid #ddd;
+      color: var(--dark);
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 300;
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: none;
+    }
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus { border-color: var(--blue); }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: #aaa; }
+
+    .contact-form .btn-submit-dark {
+      background: var(--blue);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border: none;
+      cursor: pointer;
+      margin-top: 4px;
+      transition: background 0.2s;
+    }
+    .contact-form .btn-submit-dark:hover { background: #0a3e7d; }
+
+    /* ─── CALENDAR ────────────────────────────────────── */
+    #calendar {
+      background: #fff;
+      padding: 80px 48px;
+      text-align: center;
+    }
+    #calendar .section-title {
+      margin: 0 auto 8px;
+      text-align: center;
+    }
+    #calendar > p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+    .calendar-embed {
+      background: var(--bg);
+      border: 1px solid #e5e0db;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .calendar-embed p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    /* SWAP: Replace .calendar-embed with actual Calendly or Cal.com embed:
+    <div class="calendly-inline-widget" data-url="https://calendly.com/ricardo-amigo/discovery" style="min-width:320px;height:700px;"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    */
+
+    /* ─── CLOSE ───────────────────────────────────────── */
+    #close {
+      background: var(--dark);
+      padding: 120px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .close-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(15,80,155,0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .close-content { position: relative; }
+    .close-label {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 24px;
+    }
+    .close-h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .close-h2 em { font-style: italic; color: #f0dfc8; }
+    .close-sub {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      max-width: 440px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: #090e16;
+      padding: 48px 48px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer-logo span {
+      font-family: var(--serif);
+      color: rgba(255,255,255,0.5);
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+    }
+    .footer-links {
+      display: flex;
+      gap: 32px;
+    }
+    .footer-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.7); }
+    .footer-copy {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ─── ANIMATIONS ──────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(-8px); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── MOBILE ──────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      #why, #about, #contact { grid-template-columns: 1fr; gap: 48px; }
+      #guide { grid-template-columns: 1fr; gap: 48px; padding: 80px 48px; }
+      .props-grid { grid-template-columns: 1fr 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      #stats-bar { grid-template-columns: 2fr 2fr; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      section { padding: 72px 24px; }
+      #guide { padding: 72px 24px; }
+      #hero h1 { font-size: 2.8rem; }
+      .props-grid { grid-template-columns: 1fr; }
+      #stats-bar { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .why-img:first-child { grid-column: span 1; aspect-ratio: 16/9; }
+      .about-badge { right: 0; bottom: -16px; width: 90px; height: 90px; }
+      .about-badge .num { font-size: 1.8rem; }
+      .contact-left, .contact-right { padding: 56px 24px; }
+      footer { flex-direction: column; align-items: flex-start; }
+      .lifestyle-header { flex-direction: column; align-items: flex-start; gap: 16px; padding: 0 24px 40px; }
+      .lifestyle-scroll { padding: 0 24px 48px; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .form-row { grid-template-columns: 1fr !important; }
+      .about-pillars { grid-template-columns: 1fr; }
+      .pillar { border-right: none; border-bottom: 1px solid #eee; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─────────────────────────────────────────── -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <!-- If rare-logo-white.svg loads clean: swap the span below for <img src="./images/rare-logo-white.svg" alt="RARE" /> -->
+      <span class="nav-logo-text">RARE</span>
+    </div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#properties">Properties</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Talk to Richard</a>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-bg">
+      <!-- SWAP: Replace URL in .hero-bg CSS with your actual hero photo path -->
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-label">Todos Santos, Baja California Sur · Pueblo Mágico</p>
+      <h1 class="hero-h1">Where the Pacific<br/><em>Meets the Desert.</em><br/>Where Art Meets Architecture.</h1>
+      <p class="hero-sub">An hour from Los Cabos International Airport. Worlds away from everything else.</p>
+      <div class="hero-actions">
+        <a href="#guide" class="btn-primary">Download the Free Guide</a>
+        <a href="#properties" class="btn-ghost">View Properties</a>
+      </div>
+    </div>
+    <div class="scroll-cue">Discover</div>
+  </section>
+
+  <!-- ─── STATS BAR ─────────────────────────────────────── -->
+  <div id="stats-bar">
+    <div class="stat-item reveal">
+      <span class="stat-num">72min</span>
+      <span class="stat-label">From SJD Airport</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num">330+</span>
+      <span class="stat-label">Sunny Days per Year</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num">2003</span>
+      <span class="stat-label">Pueblo Mágico Since</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num">20+yrs</span>
+      <span class="stat-label">RARE in the Market</span>
+    </div>
+  </div>
+
+  <!-- ─── WHY TODOS SANTOS ───────────────────────────────── -->
+  <section id="why">
+    <div class="why-text reveal">
+      <span class="section-label">The Destination</span>
+      <h2 class="section-title">Not just a place.<br/><em>A state of mind.</em></h2>
+      <p>Todos Santos is Baja's best-kept secret — a working artists' colony, a surf destination, and a Pueblo Mágico that has drawn painters, chefs, musicians, and architects from around the world without ever losing its soul.</p>
+      <p>The Pacific here is raw and cinematic. The desert blooms. The food comes from small farms you can see from the table. And unlike Los Cabos, there are no cruise ships, no high-rises, no mass tourism — just an extraordinary community building something intentional.</p>
+      <p>For buyers seeking privacy, authenticity, and long-term value: this is it.</p>
+      <br/>
+      <a href="#properties" class="btn-primary" style="display:inline-block;">Explore Properties →</a>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-img">
+        <!-- SWAP: Replace src with actual image asset or Unsplash link -->
+        <img src="./images/why-coast.jpg" alt="Pacific coast Todos Santos" loading="lazy" />
+      </div>
+      <div class="why-img">
+        <img src="./images/why-desert.jpg" alt="Baja desert" loading="lazy" />
+      </div>
+      <div class="why-img">
+        <img src="./images/why-gallery.jpg" alt="Todos Santos art gallery" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── LIFESTYLE GRID ─────────────────────────────────── -->
+  <section id="lifestyle">
+    <div class="lifestyle-header">
+      <div class="reveal">
+        <span class="section-label" style="color:rgba(255,255,255,0.5)">Life in Todos Santos</span>
+        <h2 class="section-title">The life you've been<br/><em>quietly imagining.</em></h2>
+      </div>
+    </div>
+    <div class="lifestyle-scroll">
+      <div class="ls-card">
+        <img src="./images/lifestyle-surf.jpg" alt="Surf" loading="lazy" />
+        <span class="ls-card-label">World-class surf</span>
+      </div>
+      <div class="ls-card">
+        <img src="./images/lifestyle-dining.jpg" alt="Farm to table dining" loading="lazy" />
+        <span class="ls-card-label">Farm-to-table dining</span>
+      </div>
+      <div class="ls-card">
+        <img src="./images/lifestyle-art.jpg" alt="Art galleries" loading="lazy" />
+        <span class="ls-card-label">Art colony &amp; galleries</span>
+      </div>
+      <div class="ls-card">
+        <img src="./images/lifestyle-whales.jpg" alt="Whale watching" loading="lazy" />
+        <span class="ls-card-label">Whale watching season</span>
+      </div>
+      <div class="ls-card">
+        <img src="./images/lifestyle-market.jpg" alt="Farmers market" loading="lazy" />
+        <span class="ls-card-label">Weekly farmers market</span>
+      </div>
+      <div class="ls-card">
+        <img src="./images/lifestyle-architecture.jpg" alt="Desert architecture" loading="lazy" />
+        <span class="ls-card-label">Desert architecture</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT RARE ─────────────────────────────────────── -->
+  <section id="about">
+    <div class="about-img-wrap reveal">
+      <!-- SWAP: Replace with actual Ricardo photo from ricardoamigo.com/us -->
+      <img src="./images/ricardo.jpg" alt="Ricardo Amigo, RARE" />
+      <div class="about-badge">
+        <span class="num">20+</span>
+        <span class="lbl">Years in<br/>the Market</span>
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <span class="section-label">Why RARE</span>
+      <h2 class="section-title">Local knowledge.<br/><em>Global perspective.</em></h2>
+      <p>Richard Friend has been selling real estate in Todos Santos and the surrounding corridors for over two decades. His team at RARE are not just agents — they're neighbors, long-term residents, and investors in the community themselves.</p>
+      <p>Bilingual, boutique, and deeply embedded in the expat and local networks that actually move property here. When you work with RARE, you're not talking to someone reading off a brochure.</p>
+
+      <div class="about-pillars">
+        <div class="pillar">
+          <div class="pillar-icon">◎</div>
+          <h4>Local Expert</h4>
+          <p>20+ years on the ground in Todos Santos, Pescadero & Cerritos</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">◎</div>
+          <h4>Bilingual</h4>
+          <p>Full service in English & Spanish. Mexican regulations, simplified.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">◎</div>
+          <h4>End-to-End</h4>
+          <p>From search to close to property management, one trusted team.</p>
+        </div>
+      </div>
+
+      <br/>
+      <a href="https://ricardoamigo.com/us" target="_blank" class="btn-primary" style="display:inline-block;">Meet the Team →</a>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIALS ───────────────────────────────────── -->
+  <section id="testimonials">
+    <span class="section-label" style="display:block;text-align:center">What buyers say</span>
+    <h2 class="section-title reveal">Trust built one<br/><em>transaction at a time.</em></h2>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Ricardo knew which lots would get permits and which wouldn't — that local intelligence saved us months and probably $200k in mistakes.</p>
+        <p class="testi-author">David & Lisa M.</p>
+        <p class="testi-origin">Oregon → Todos Santos</p>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">We interviewed three agencies. RARE was the only team that actually understood what we were looking for beyond the square footage.</p>
+        <p class="testi-author">James T.</p>
+        <p class="testi-origin">Vancouver → Pescadero</p>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Three years later they still manage our rental. One call and things happen. That kind of relationship is rare anywhere, let alone in Mexico.</p>
+        <p class="testi-author">Susan & Bob R.</p>
+        <p class="testi-origin">Texas → Cerritos</p>
+      </div>
+    </div>
+    <!--
+    SWAP: Replace cards above with real client testimonials when available.
+    Consider adding press logos here: Mexican Real Estate Magazine, WSJ, NYT Escapes, etc.
+    -->
+  </section>
+
+  <!-- ─── LEAD MAGNET ────────────────────────────────────── -->
+  <section id="guide">
+    <div class="guide-text reveal">
+      <span class="section-label">Free Resource</span>
+      <h2 class="section-title" style="color:#fff;">Be first to know<br/><em>what this market is doing.</em></h2>
+      <p>We're putting the finishing touches on the most complete buyer's resource for Todos Santos, Pescadero, and Cerritos. Be the first to receive it.</p>
+      <ul class="guide-includes">
+        <li>Neighborhood-by-neighborhood property guide</li>
+        <li>Price appreciation trends 2019–2025</li>
+        <li>Foreign ownership laws explained simply</li>
+        <li>Top questions to ask before buying</li>
+        <li>Best architects, builders & attorneys we trust</li>
+        <li>Lifestyle calendar: festivals, surf season, whale watching</li>
+      </ul>
+    </div>
+    <div class="guide-form reveal">
+      <h3>Get Early Access to the<br/>Todos Santos Lifestyle &amp; Market Guide</h3>
+      <p>We're finishing the guide now. Leave your info and you'll be the first to receive it — plus occasional market updates from Ricardo directly.</p>
+      <!--
+        MAILCHIMP SWAP: Replace this form with your Mailchimp embed form.
+        Keep the hidden interest-type fields and pass them as merge tags.
+        Example merge tags to add in Mailchimp:
+          ITYPE = interest type (dropdown)
+          TIMELINE = buying timeline
+        
+        For proper lead categorization, map form fields to Mailchimp tags:
+          Tags: "Guide Lead", "Buyer — Land", "Buyer — Casa", etc.
+      -->
+      <form
+        action="https://ricardoamigo.us1.list-manage.com/subscribe/post?u=XXXX&amp;id=XXXX"
+        method="post"
+        target="_blank"
+        onsubmit="return handleGuideForm(event)"
+      >
+        <div class="form-group">
+          <input type="text" name="FNAME" placeholder="First name" required />
+        </div>
+        <div class="form-group">
+          <input type="email" name="EMAIL" placeholder="Email address" required />
+        </div>
+        <div class="form-group">
+          <select name="TIMELINE">
+            <option value="" disabled selected>When are you looking to buy?</option>
+            <option value="0-6mo">Within 6 months</option>
+            <option value="6-12mo">6–12 months</option>
+            <option value="1-2yr">1–2 years</option>
+            <option value="exploring">Just exploring</option>
+          </select>
+        </div>
+
+        <!-- Lead categorization chips — maps to Mailchimp ITYPE field -->
+        <p style="font-size:0.72rem;color:rgba(255,255,255,0.5);margin-bottom:8px;letter-spacing:0.08em;text-transform:uppercase;">I'm interested in:</p>
+        <div class="form-intent">
+          <label class="intent-chip" onclick="this.classList.toggle('checked')">
+            <input type="checkbox" name="ITYPE[]" value="casa" /> <span>Casa / Home</span>
+          </label>
+          <label class="intent-chip" onclick="this.classList.toggle('checked')">
+            <input type="checkbox" name="ITYPE[]" value="land" /> <span>Land / Lot</span>
+          </label>
+          <label class="intent-chip" onclick="this.classList.toggle('checked')">
+            <input type="checkbox" name="ITYPE[]" value="investment" /> <span>Investment</span>
+          </label>
+          <label class="intent-chip" onclick="this.classList.toggle('checked')">
+            <input type="checkbox" name="ITYPE[]" value="rental" /> <span>Rental Property</span>
+          </label>
+        </div>
+
+        <!-- Honeypot anti-spam (Mailchimp standard) -->
+        <div style="position:absolute;left:-5000px" aria-hidden="true">
+          <input type="text" name="b_XXXX_XXXX" tabindex="-1" value="" />
+        </div>
+
+        <button type="submit" class="btn-submit">Notify Me When It's Ready</button>
+        <p class="form-privacy">You'll also receive occasional market updates from Ricardo. Unsubscribe anytime.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ─── FEATURED PROPERTIES ───────────────────────────── -->
+  <section id="properties">
+    <div class="props-header">
+      <div>
+        <span class="section-label" style="color:rgba(255,255,255,0.4)">Current Listings</span>
+        <h2 class="section-title reveal">Featured<br/><em>properties.</em></h2>
+      </div>
+      <a href="https://ricardoamigo.com/for-sale" target="_blank">View All Listings →</a>
+    </div>
+
+    <!-- Filter tabs for lead intent tracking -->
+    <div class="filter-tabs" id="propFilter">
+      <button class="filter-tab active" data-filter="all" onclick="filterProps(this,'all')">All</button>
+      <button class="filter-tab" data-filter="casa" onclick="filterProps(this,'casa')">Casa</button>
+      <button class="filter-tab" data-filter="land" onclick="filterProps(this,'land')">Land</button>
+      <button class="filter-tab" data-filter="investment" onclick="filterProps(this,'investment')">Investment</button>
+    </div>
+
+    <div class="props-grid" id="propsGrid">
+      <!--
+        SWAP: Replace these cards with actual MLS listings from ricardoamigo.com.
+        If RARE's IDX supports it, pull via API. Otherwise, manually update.
+        Each card: photo, price, type, beds/baths/m2, direct link to listing.
+      -->
+      <!-- PROPERTY 1 — LAND -->
+      <div class="prop-card" data-type="land">
+        <div class="prop-img">
+          <img src="https://cdn.resize.sparkplatform.com/cab/1280x1024/true/20251029062214461784000000-o.jpg" alt="Pacific Beachfront" loading="lazy" />
+          <span class="prop-tag">Land</span>
+        </div>
+        <div class="prop-info">
+          <p class="prop-price">$2,799,000 USD</p>
+          <p class="prop-name">Pacific Beachfront — Pescadero · MLS 25-4451</p>
+          <div class="prop-specs">
+            <div class="spec"><strong>3,856 m²</strong>Lot Area</div>
+            <div class="spec"><strong>Pacific</strong>Beachfront</div>
+            <div class="spec"><strong>Escritura</strong>Title</div>
+          </div>
+        </div>
+        <a href="https://ricardoamigo.com/for-sale/pacific-beachfront/25-4451" class="prop-cta" target="_blank">View Listing</a>
+      </div>
+
+      <!-- PROPERTY 2 — HOME -->
+      <div class="prop-card" data-type="casa">
+        <div class="prop-img">
+          <img src="https://cdn.resize.sparkplatform.com/cab/1280x1024/true/20251027185038583544000000-o.jpg" alt="The Nacuii Residence" loading="lazy" />
+          <span class="prop-tag">Casa</span>
+        </div>
+        <div class="prop-info">
+          <p class="prop-price">$2,650,000 USD</p>
+          <p class="prop-name">The Nacuii Residence — Las Tunas, Todos Santos · MLS 25-3052</p>
+          <div class="prop-specs">
+            <div class="spec"><strong>5</strong>Beds</div>
+            <div class="spec"><strong>6</strong>Baths</div>
+            <div class="spec"><strong>3,000 m²</strong>Lot</div>
+          </div>
+        </div>
+        <a href="https://ricardoamigo.com/for-sale/the-nacuii-residence/25-3052" class="prop-cta" target="_blank">View Listing</a>
+      </div>
+
+      <!-- PROPERTY 3 — INVESTMENT -->
+      <div class="prop-card" data-type="investment">
+        <div class="prop-img">
+          <img src="https://cdn.resize.sparkplatform.com/cab/1280x1024/true/20251021211530089254000000-o.jpg" alt="Swell Todos Santos" loading="lazy" />
+          <span class="prop-tag">Investment</span>
+        </div>
+        <div class="prop-info">
+          <p class="prop-price">$1,700,000 USD</p>
+          <p class="prop-name">Swell Todos Santos — San Sebastián · MLS 25-4469</p>
+          <div class="prop-specs">
+            <div class="spec"><strong>8</strong>Beds</div>
+            <div class="spec"><strong>7.5</strong>Baths</div>
+            <div class="spec"><strong>1,742 m²</strong>Lot</div>
+          </div>
+        </div>
+        <a href="https://ricardoamigo.com/for-sale/swell-todos-santos/25-4469" class="prop-cta" target="_blank">View Listing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT / CONVERSION ──────────────────────────── -->
+  <section id="contact">
+    <div class="contact-left">
+      <span class="section-label" style="color:rgba(255,255,255,0.4)">Ready to move forward?</span>
+      <h2 class="section-title reveal">Talk to Richard<br/><em>directly.</em></h2>
+      <p>No assistants, no callbacks, no runaround. Ricardo and his team pick up the phone and reply to messages. That's the RARE difference.</p>
+      <div class="contact-methods">
+        <!--
+          SWAP: Replace +52XXXXXXXXXX with Ricardo's actual WhatsApp number.
+          Pre-filled message helps conversion significantly.
+        -->
+        <a href="https://wa.me/52XXXXXXXXXX?text=Hi%20Ricardo%2C%20I%20found%20your%20Todos%20Santos%20page%20and%20I'm%20interested%20in%20learning%20more%20about%20properties." class="contact-btn whatsapp" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Ricardo
+        </a>
+        <!-- SWAP: actual phone number -->
+        <a href="tel:+52XXXXXXXXXX" class="contact-btn call">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Call the Office
+        </a>
+        <!-- SWAP: actual email -->
+        <a href="mailto:info@ricardoamigo.com" class="contact-btn email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email Us
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <h3>Send a message</h3>
+      <p>Tell us what you're looking for and we'll get back to you within 24 hours.</p>
+      <form class="contact-form" onsubmit="handleContactForm(event)">
+        <div class="form-row form-group">
+          <input type="text" name="firstName" placeholder="First name" required />
+          <input type="text" name="lastName" placeholder="Last name" />
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Email address" required />
+        </div>
+        <div class="form-group">
+          <input type="tel" name="phone" placeholder="Phone / WhatsApp (optional)" />
+        </div>
+        <div class="form-group">
+          <select name="interest" required>
+            <option value="" disabled selected>I'm looking for...</option>
+            <option value="casa">A casa / home</option>
+            <option value="land">Land / lot</option>
+            <option value="investment">Investment property</option>
+            <option value="sell">I want to sell my property</option>
+            <option value="info">Just getting information</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea name="message" rows="3" placeholder="Anything else you'd like to tell us?"></textarea>
+        </div>
+        <button type="submit" class="btn-submit-dark">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ─── DISCOVERY CALL ─────────────────────────────────── -->
+  <section id="calendar" style="background:#fff;padding:100px 48px;text-align:center;">
+    <span class="section-label">Ready to Talk?</span>
+    <h2 class="section-title reveal" style="margin:0 auto 16px;text-align:center;">30 minutes with Ricardo.<br/><em>No pressure. Just answers.</em></h2>
+    <p style="font-size:0.92rem;color:var(--muted);max-width:480px;margin:0 auto 48px;line-height:1.7;">Honest advice about the market, the process, and whether this is the right move for you. Reach out on whichever channel feels comfortable.</p>
+
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <!-- SWAP: Replace with Ricardo's actual WhatsApp number -->
+      <a href="https://wa.me/52XXXXXXXXXX?text=Hi%20Ricardo%2C%20I%20found%20your%20Todos%20Santos%20page%20and%20I'd%20love%20to%20schedule%20a%20quick%20call%20to%20learn%20more." 
+         target="_blank"
+         style="display:inline-flex;align-items:center;gap:12px;background:#25d366;color:#fff;font-family:var(--sans);font-size:0.82rem;font-weight:500;letter-spacing:0.08em;text-decoration:none;padding:16px 32px;transition:background 0.2s;"
+         onmouseover="this.style.background='#1ebb59'" onmouseout="this.style.background='#25d366'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Message on WhatsApp
+      </a>
+      <!-- SWAP: Update subject/body as needed -->
+      <a href="mailto:info@ricardoamigo.com?subject=Discovery%20Call%20Request%20—%20Todos%20Santos&body=Hi%20Ricardo%2C%0A%0AI%20found%20your%20landing%20page%20and%20I'm%20interested%20in%20learning%20more%20about%20properties%20in%20Todos%20Santos.%20Could%20we%20schedule%20a%20quick%20call%3F%0A%0AThanks"
+         style="display:inline-flex;align-items:center;gap:12px;background:var(--blue);color:#fff;font-family:var(--sans);font-size:0.82rem;font-weight:500;letter-spacing:0.08em;text-decoration:none;padding:16px 32px;transition:background 0.2s;"
+         onmouseover="this.style.background='#0a3e7d'" onmouseout="this.style.background='var(--blue)'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Send an Email
+      </a>
+    </div>
+    <p style="font-size:0.72rem;color:#bbb;margin-top:28px;letter-spacing:0.05em;">We respond within 24 hours · Bilingual · No sales pressure</p>
+  </section>
+
+  <!-- ─── CLOSE ──────────────────────────────────────────── -->
+  <section id="close">
+    <div class="close-bg"></div>
+    <div class="close-content">
+      <p class="close-label">Richard Friend · Ricardo Amigo Real Estate</p>
+      <h2 class="close-h2">Your Todos Santos story<br/><em>starts here.</em></h2>
+      <p class="close-sub">Eighteen years of relationships, deals, and deep roots in Baja's most extraordinary community. Let's find your place in it.</p>
+      <div class="hero-actions">
+        <a href="#guide" class="btn-primary">Get the Free Guide</a>
+        <a href="https://wa.me/52XXXXXXXXXX" class="btn-ghost" target="_blank">WhatsApp Ricardo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-logo">
+      <span>RARE — Ricardo Amigo Real Estate · Todos Santos, BCS</span>
+    </div>
+    <nav class="footer-links">
+      <a href="https://ricardoamigo.com/for-sale" target="_blank">Properties</a>
+      <a href="https://ricardoamigo.com/us" target="_blank">About</a>
+      <a href="https://ricardoamigo.com/info" target="_blank">Info</a>
+      <a href="mailto:info@ricardoamigo.com">Contact</a>
+    </nav>
+    <p class="footer-copy">© 2026 Ricardo Amigo Real Estate. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // ─── NAV SCROLL BEHAVIOR ────────────────────────────────
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ─── SCROLL REVEAL ──────────────────────────────────────
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) {
+          el.target.classList.add('visible');
+          observer.unobserve(el.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+
+    // ─── PROPERTY FILTER ────────────────────────────────────
+    // Also tracks lead intent — can be sent to analytics
+    function filterProps(btn, type) {
+      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.prop-card').forEach(card => {
+        const match = type === 'all' || card.dataset.type === type;
+        card.style.display = match ? 'block' : 'none';
+      });
+      // Track intent via analytics (swap with your GA4 or Meta Pixel event)
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'filter_properties', { filter_type: type });
+      }
+    }
+
+    // ─── GUIDE FORM ──────────────────────────────────────────
+    function handleGuideForm(e) {
+      // Track lead capture event
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'generate_lead', {
+          event_category: 'Guide Download',
+          event_label: document.querySelector('[name="TIMELINE"]')?.value
+        });
+      }
+      // Meta Pixel lead event (if installed)
+      if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+      // Let the form submit normally to Mailchimp
+      return true;
+    }
+
+    // ─── CONTACT FORM ────────────────────────────────────────
+    // SWAP: Replace with actual form handler (Netlify Forms, Formspree, or backend API)
+    function handleContactForm(e) {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target));
+      
+      // Option A — Formspree (easiest, free tier available):
+      // Replace action="YOUR_FORMSPREE_ID" in the form tag
+      // and change onsubmit to default submit
+
+      // Option B — mailto fallback (use as bridge while setting up):
+      const subject = encodeURIComponent(`RARE Inquiry — ${data.interest}`);
+      const body = encodeURIComponent(
+        `Name: ${data.firstName} ${data.lastName}\nEmail: ${data.email}\nPhone: ${data.phone}\nInterest: ${data.interest}\n\n${data.message}`
+      );
+      window.location.href = `mailto:info@ricardoamigo.com?subject=${subject}&body=${body}`;
+
+      // Track conversion
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'generate_lead', { event_category: 'Contact Form', event_label: data.interest });
+      }
+    }
+
+    // ─── UTM CAPTURE ─────────────────────────────────────────
+    // Captures UTM params from ad clicks and stores for form attribution
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+      utmKeys.forEach(k => {
+        if (params.get(k)) sessionStorage.setItem(k, params.get(k));
+      });
+    })();
+  </script>
+
+  <!--
+    ════════════════════════════════════════════════════════
+    INTEGRATION CHECKLIST — Before going live:
+    ════════════════════════════════════════════════════════
+
+    1. HERO IMAGE (priority #1 visual impact)
+       ✗ Replace Unsplash URL in .hero-bg CSS with actual photo
+       ✗ Recommended: golden hour shot, coast or desert, 1920×1080px min
+       ✗ Store as ./assets/hero.jpg and update background-image path
+
+    2. ALL OTHER IMAGES
+       ✗ Why Todos Santos grid: 3 real photos (coast, desert, gallery/street)
+       ✗ Lifestyle scroll: 6 photos — surf, dining, art, whales, market, architecture
+       ✗ Ricardo's photo: headshot or candid from ricardoamigo.com/us
+       ✗ Store in ./assets/ folder, update src attributes
+
+    3. CONTACT INFO
+       ✗ Replace ALL instances of +52XXXXXXXXXX with Ricardo's WhatsApp number
+       ✗ Verify info@ricardoamigo.com or update to correct address
+
+    4. MAILCHIMP
+       ✗ Replace form action URL with actual Mailchimp list endpoint
+       ✗ Replace honeypot field b_XXXX_XXXX with your values
+       ✗ Map ITYPE and TIMELINE to Mailchimp merge tags
+       ✗ Create tag "Guide Waitlist" — triggers notification email when PDF is ready
+       ✗ Create tag per interest type for segmented follow-up
+
+    5. CONTACT FORM BACKEND
+       ✗ Option A — Formspree: create free account, replace form action
+       ✗ Option B — Netlify Forms: add netlify attribute when deploying via Netlify
+       ✗ Current fallback opens mailto: (works but not ideal for tracking)
+
+    6. FEATURED PROPERTIES
+       ✗ Replace 3 placeholder cards with actual RARE listings
+       ✗ Update prices, names, specs, and CTA links to live MLS pages
+
+    7. ANALYTICS & TRACKING
+       ✗ Add GA4 tag before </head>: gtag('config', 'G-XXXXXXXXXX')
+       ✗ Add Meta Pixel for Facebook/Instagram ad retargeting
+       ✗ Both snippets go just before </head>
+
+    8. LOGO
+       ✗ Replace text "RARE — Ricardo Amigo Real Estate" in nav with logo image
+       ✗ Use white/inverted version on dark background
+       ✗ Store as ./assets/rare-logo-white.svg
+
+    9. DOMAIN (Vercel)
+       ✗ Push to GitHub repo (e.g. github.com/RARE/todos-santos-funnel)
+       ✗ Connect repo to Vercel → Import Project
+       ✗ Add custom domain: e.g. todos-santos.ricardoamigo.com
+       ✗ In DNS: add CNAME record → cname.vercel-dns.com
+
+    10. WHEN PDF GUIDE IS READY
+        ✗ Upload PDF to Mailchimp or hosting
+        ✗ Update guide form action to trigger instant delivery
+        ✗ Change button text back to "Send Me the Free Guide"
+        ✗ Update section headline and intro copy
+    ════════════════════════════════════════════════════════
+  -->
+</body>
+</html>
