@@ -6,10 +6,6 @@
   <title>Todos Santos Real Estate — Ricardo Amigo Real Estate</title>
   <meta name="description" content="Where the Pacific meets the desert. Discover Todos Santos real estate with RARE — Baja's most trusted boutique agency." />
 
-  <!-- OG Meta for ads -->
-  <meta property="og:title" content="Your Todos Santos Story Starts Here" />
-  <meta property="og:description" content="Luxury land, casas & investment properties in Baja's most magical Pueblo Mágico." />
-  <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -42,70 +38,42 @@
     }
 
     /* ─── NAV ─────────────────────────────────────────── */
-    nav {
+    #navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 1000;
+      z-index: 999;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 48px;
-      background: transparent;
+      padding: 18px 48px;
       transition: background 0.4s, backdrop-filter 0.4s;
-      isolation: isolate;
     }
-    nav.scrolled {
-      background: rgba(13,17,23,0.90);
-      backdrop-filter: blur(12px);
+    #navbar.scrolled {
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(14px);
     }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
+    #navbar .logo img {
+      height: 38px;
+      display: block;
     }
-    .nav-logo-text {
-      font-family: var(--serif);
-      font-size: 1.6rem;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      color: #fff;
-      text-transform: uppercase;
-    }
-    .nav-logo img {
-      height: 32px;
-      filter: brightness(0) invert(1);
-    }
-    .nav-logo span {
-      font-family: var(--serif);
-      color: #fff;
-      font-size: 1rem;
-      font-weight: 300;
-      letter-spacing: 0.1em;
-      white-space: nowrap;
-    }
-    .nav-right {
+    #navbar .nav-links {
       display: flex;
       align-items: center;
       gap: 32px;
-    }
-    .nav-links {
-      display: flex;
-      gap: 28px;
       list-style: none;
     }
-    .nav-links a {
+    #navbar .nav-links a {
       font-family: var(--sans);
       font-size: 0.7rem;
       font-weight: 400;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.65);
+      color: rgba(255,255,255,0.7);
       text-decoration: none;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: #fff; }
-    .nav-cta {
+    #navbar .nav-links a:hover { color: #fff; }
+    #navbar .nav-cta {
       background: var(--orange);
       color: #fff;
       font-family: var(--sans);
@@ -115,12 +83,14 @@
       text-transform: uppercase;
       text-decoration: none;
       padding: 10px 22px;
-      border: none;
-      cursor: pointer;
-      white-space: nowrap;
       transition: background 0.2s;
+      white-space: nowrap;
     }
-    .nav-cta:hover { background: #c5623a; }
+    #navbar .nav-cta:hover { background: #c5623a; }
+    @media (max-width: 768px) {
+      #navbar { padding: 14px 20px; }
+      #navbar .nav-links { display: none; }
+    }
 
     /* ─── HERO ────────────────────────────────────────── */
     #hero {
@@ -161,7 +131,7 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      padding: 72px 24px 80px; /* top clears nav, bottom clears scroll-cue */
+      padding: 76px 24px 80px;
       animation: fadeUp 1.2s ease both;
       width: 100%;
     }
@@ -1115,18 +1085,16 @@
 
   <!-- ─── NAV ─────────────────────────────────────────── -->
   <nav id="navbar">
-    <div class="nav-logo">
-      <!-- If rare-logo-white.svg loads clean: swap the span below for <img src="./images/rare-logo-white.svg" alt="RARE" /> -->
-      <span class="nav-logo-text">RARE</span>
+    <div class="logo">
+      <img src="./images/rare-logo-white.svg" alt="RARE — Ricardo Amigo Real Estate" />
     </div>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="#properties">Properties</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <a href="#contact" class="nav-cta">Talk to Richard</a>
-    </div>
+    <ul class="nav-links">
+      <li><a href="#why">Todos Santos</a></li>
+      <li><a href="#about">About RARE</a></li>
+      <li><a href="#properties">Properties</a></li>
+      <li><a href="#guide">Free Guide</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Talk to Richard</a>
   </nav>
 
   <!-- ─── HERO ────────────────────────────────────────── -->
