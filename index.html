@@ -57,22 +57,50 @@
       background: rgba(13,17,23,0.85);
       backdrop-filter: blur(12px);
     }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
     .nav-logo img {
-      height: 36px;
+      height: 32px;
       filter: brightness(0) invert(1);
     }
     .nav-logo span {
       font-family: var(--serif);
       color: #fff;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 300;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
     }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
     .nav-cta {
       background: var(--orange);
       color: #fff;
       font-family: var(--sans);
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -80,6 +108,7 @@
       padding: 10px 22px;
       border: none;
       cursor: pointer;
+      white-space: nowrap;
       transition: background 0.2s;
     }
     .nav-cta:hover { background: #c5623a; }
@@ -88,7 +117,7 @@
     #hero {
       position: relative;
       height: 100vh;
-      min-height: 600px;
+      min-height: 640px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -105,7 +134,7 @@
         Example: background-image: url('./assets/hero-todos-santos.jpg');
         Recommended: 1920×1080px min, golden hour coastline or desert-meets-ocean shot.
       */
-      background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85');
+      background-image: url('./images/hero.jpg');
       background-size: cover;
       background-position: center 40%;
     }
@@ -123,7 +152,7 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      padding: 0 24px;
+      padding: 80px 24px 0; /* top offset clears the fixed nav (~76px tall) */
       animation: fadeUp 1.2s ease both;
     }
 
@@ -1050,6 +1079,7 @@
 
     @media (max-width: 768px) {
       nav { padding: 16px 24px; }
+      .nav-links { display: none; }
       section { padding: 72px 24px; }
       #guide { padding: 72px 24px; }
       #hero h1 { font-size: 2.8rem; }
@@ -1074,13 +1104,18 @@
 
   <!-- ─── NAV ─────────────────────────────────────────── -->
   <nav id="navbar">
-    <div class="nav-logo">
-      <!-- SWAP: Replace text with actual logo image:
-      <img src="https://ricardoamigo.com/wp-content/uploads/YOUR-LOGO-WHITE.png" alt="RARE" />
-      -->
+    <a href="https://ricardoamigo.com" target="_blank" class="nav-logo">
+      <img src="./images/rare-logo-white.svg" alt="RARE" />
       <span>RARE — Ricardo Amigo Real Estate</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#properties">Properties</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="https://ricardoamigo.com/info" target="_blank">Info</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Talk to Ricardo</a>
     </div>
-    <a href="#contact" class="nav-cta">Talk to Ricardo</a>
   </nav>
 
   <!-- ─── HERO ────────────────────────────────────────── -->
@@ -1135,13 +1170,13 @@
     <div class="why-grid reveal">
       <div class="why-img">
         <!-- SWAP: Replace src with actual image asset or Unsplash link -->
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80" alt="Pacific coast Todos Santos" loading="lazy" />
+        <img src="./images/why-coast.jpg" alt="Pacific coast Todos Santos" loading="lazy" />
       </div>
       <div class="why-img">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Baja desert" loading="lazy" />
+        <img src="./images/why-desert.jpg" alt="Baja desert" loading="lazy" />
       </div>
       <div class="why-img">
-        <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=600&q=80" alt="Todos Santos art gallery" loading="lazy" />
+        <img src="./images/why-gallery.jpg" alt="Todos Santos art gallery" loading="lazy" />
       </div>
     </div>
   </section>
@@ -1156,27 +1191,27 @@
     </div>
     <div class="lifestyle-scroll">
       <div class="ls-card">
-        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&q=80" alt="Surf" loading="lazy" />
+        <img src="./images/lifestyle-surf.jpg" alt="Surf" loading="lazy" />
         <span class="ls-card-label">World-class surf</span>
       </div>
       <div class="ls-card">
-        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&q=80" alt="Farm to table dining" loading="lazy" />
+        <img src="./images/lifestyle-dining.jpg" alt="Farm to table dining" loading="lazy" />
         <span class="ls-card-label">Farm-to-table dining</span>
       </div>
       <div class="ls-card">
-        <img src="https://images.unsplash.com/photo-1558981285-6f0c8b2f2a32?w=500&q=80" alt="Art galleries" loading="lazy" />
+        <img src="./images/lifestyle-art.jpg" alt="Art galleries" loading="lazy" />
         <span class="ls-card-label">Art colony &amp; galleries</span>
       </div>
       <div class="ls-card">
-        <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=500&q=80" alt="Whale watching" loading="lazy" />
+        <img src="./images/lifestyle-whales.jpg" alt="Whale watching" loading="lazy" />
         <span class="ls-card-label">Whale watching season</span>
       </div>
       <div class="ls-card">
-        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500&q=80" alt="Farmers market" loading="lazy" />
+        <img src="./images/lifestyle-market.jpg" alt="Farmers market" loading="lazy" />
         <span class="ls-card-label">Weekly farmers market</span>
       </div>
       <div class="ls-card">
-        <img src="https://images.unsplash.com/photo-1522156373667-4c7234bbd804?w=500&q=80" alt="Desert architecture" loading="lazy" />
+        <img src="./images/lifestyle-architecture.jpg" alt="Desert architecture" loading="lazy" />
         <span class="ls-card-label">Desert architecture</span>
       </div>
     </div>
@@ -1186,7 +1221,7 @@
   <section id="about">
     <div class="about-img-wrap reveal">
       <!-- SWAP: Replace with actual Ricardo photo from ricardoamigo.com/us -->
-      <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80" alt="Ricardo Amigo, RARE" />
+      <img src="./images/ricardo.jpg" alt="Ricardo Amigo, RARE" />
       <div class="about-badge">
         <span class="num">18</span>
         <span class="lbl">Years in<br/>Todos Santos</span>
@@ -1355,7 +1390,7 @@
       -->
       <div class="prop-card" data-type="casa">
         <div class="prop-img">
-          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80" alt="Casa Todos Santos" loading="lazy" />
+          <img src="./images/prop-casa.jpg" alt="Casa Todos Santos" loading="lazy" />
           <span class="prop-tag">Casa</span>
         </div>
         <div class="prop-info">
@@ -1372,7 +1407,7 @@
 
       <div class="prop-card" data-type="land">
         <div class="prop-img">
-          <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=700&q=80" alt="Land Pescadero" loading="lazy" />
+          <img src="./images/prop-land.jpg" alt="Land Pescadero" loading="lazy" />
           <span class="prop-tag">Land</span>
         </div>
         <div class="prop-info">
@@ -1389,7 +1424,7 @@
 
       <div class="prop-card" data-type="investment">
         <div class="prop-img">
-          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=700&q=80" alt="Investment property" loading="lazy" />
+          <img src="./images/prop-investment.jpg" alt="Investment property" loading="lazy" />
           <span class="prop-tag">Investment</span>
         </div>
         <div class="prop-info">
